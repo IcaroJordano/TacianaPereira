@@ -8,11 +8,16 @@ const SearchPage = () => {
 
 
   return (
-    <section className="lg:ms-14 mb-24 lg:mb-0 lg:flex">
-      <div className=" lg:mt-8 lg:w-96 lg:min-w-96 fixed lg:relative bg-white z-50 w-full top-0"> 
+    <section className="lg:ms-14 mb-24 lg:mb-0 ">
+      <div className="   mx-auto lg:min-w-96 flex justify-center fixed   bg-white z-50 w-full top-0"> 
+        <div className="lg:w-7/12">
         <InputSearch />
+        </div>
       </div>
+      <div className="lg:ps-20 lg:mt-24">
+
         <ContentProducts/>
+      </div>
      
     </section>
   );

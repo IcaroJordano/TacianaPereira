@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { BiHeart, BiHome, BiHomeAlt, BiSearch } from "react-icons/bi";
-import { BsHeartFill } from "react-icons/bs";
+import { BsHandbag, BsHandbagFill, BsHeartFill } from "react-icons/bs";
 import { CgHome } from "react-icons/cg";
-import { FaSearch, FaWhatsapp } from "react-icons/fa";
+import { FaSearch, FaShoppingBag, FaWhatsapp } from "react-icons/fa";
 import { FiHome } from "react-icons/fi";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { ImSearch } from "react-icons/im";
@@ -12,6 +12,13 @@ import { Link, useLocation, useParams } from "react-router-dom";
 export function NavBar({}) {
   const location = useLocation();
   const [urlAtual, setUrlAtual] = useState("");
+
+  const numero = "5585992638488";  
+  const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent);
+  const link = isMobile
+  ? `https://wa.me/${numero}`
+  : `https://web.whatsapp.com/send?phone=${numero}`;
+  
 
   useEffect(() => {
     const url = `#${location.pathname}${location.search}${location.hash}`;
@@ -24,7 +31,7 @@ export function NavBar({}) {
     >
       <Link
         to={"/"}
-        className={`${urlAtual ==='#/'?'text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
+        className={`${urlAtual ==='#/'?'transition-all text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
       >
         {urlAtual ==='#/' ?
         <GoHomeFill className=" text-xl mt-1  "/>
@@ -38,7 +45,7 @@ export function NavBar({}) {
       <Link
 
         to={"/search"}
-        className={`${urlAtual ==='#/search'?'text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
+        className={`${urlAtual ==='#/search'?'transition-all text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
       >
         <BiSearch className="text-xl mt-1  " />
 
@@ -48,17 +55,20 @@ export function NavBar({}) {
       <Link
         to={"/pedido"}
 
-        className={`${urlAtual ==="#/pedido"?'text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
+        className={`${urlAtual ==="#/pedido"?' duration-200 transition-all text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
       >
         {urlAtual ==="#/pedido"?
-        <BsHeartFill className="text-base mt-1  " />
+        <BsHandbagFill className="text-lg mt-1  " />
         :
-        <BiHeart className="text-xl mt-1  " />
+        // <BiHeart className="text-xl mt-1  " />
+
+        <BsHandbag  className="text-lg mt-1  "/>
+
         }
         <span className="lg:hidden  ">Pedido</span>
       </Link>
       <a
-        href={`https://wa.me/558599263-8488?text=${encodeURIComponent()}`}
+        href={link}
         className="text-neutral-900 justify-center gap-1 items-center flex flex-col w-1/4 "
       >
         <FaWhatsapp className=" text-xl mt-1 " />

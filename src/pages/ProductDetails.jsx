@@ -40,13 +40,13 @@ const ProductDetails = () => {
           }}
         >
           <img
-            className="h-80 lg:rounded-lg lg:h-[511px] bg-neutral-400 lg:w-96  w-full object-cover "
+            className="h-80 overflow-hidden lg:hover:scale-110 transition-all duration-200 hover:cursor-zoom-in lg:rounded-lg lg:h-[511px] bg-neutral-400 lg:w-96  w-full object-cover "
             src={produto?.image?.url}
             alt=""
           />
         </button>
 
-        <div className="relative  -top-4 lg:p-0 max-h-1/2  pb-20  lg:pt-28 bg-whitec   rounded-t-2xl pt-8">
+        <div className="relative  -top-4 lg:p-0 max-h-1/2  pb-20  lg:pt-28 bg-white   rounded-t-2xl pt-8">
           <div className="flex flex-col gap-4 p-4">
             <h2>{produto?.title}</h2>
             {produto?.descricao ? (

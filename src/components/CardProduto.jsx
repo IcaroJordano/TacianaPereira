@@ -14,7 +14,7 @@ const CardProduto = ({ image, title, most, id, price, promo }) => {
   return (
     <Link
       to={`/produto/${id}`}
-      className={`min-w-40 w-40 lg:min-w-64 text-neutral-800 relative text-sm flex flex-col gap-1 
+      className={`min-w-40 w-40 lg:min-w-64 text-neutral-800 relative text-base flex flex-col gap-1 
         transition-all duration-700 ease-out transform 
         ${show ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
     >
