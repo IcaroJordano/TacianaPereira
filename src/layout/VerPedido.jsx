@@ -20,7 +20,7 @@ export function VerPedido({}) {
   }, 0);
   return (<>
     {total > 1 && (<div
-        className={` z-10 fixed bottom-14 text-neutral-500  w-full lg:w-14 border-e border-neutral-200 lg:shadow shadow-2xl lg:justify-center items-center lg:gap-8 justify-around  lg:flex-col h-14 lg:h-full flex bg-white`}
+        className={` z-10 fixed lg:bottom-2 lg:right-2   lg:rounded-xl  bottom-14 text-neutral-500  w-full lg:w-4/12   border-e border-neutral-200 lg:shadow shadow-2xl lg:justify-center items-center lg:gap-8 justify-around   h-16  flex bg-white`}
       >
         <p className="text-sm flex flex-col">
           <span>Total Sem Entrega</span>

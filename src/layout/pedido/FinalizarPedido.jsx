@@ -23,7 +23,7 @@ const FinalizarPedido = () => {
       const qtd = itemCart?.quantidade || 0;
       return `${qtd}x ${produto.title}`;
     })
-    .join("\n")}\n\nTotal: R$ ${total.toFixed(2)}`;
+    .join("\n")}\n\nTotal: R$ ${total?.toFixed(2)}`;
 
   const [valores, setValores] = useState(0);
 
@@ -34,7 +34,6 @@ const FinalizarPedido = () => {
 
     // Calcular total
     const total = produtos.reduce((acc, produto) => {
-      console.log(produto);
       const itemCart = cart.find((item) => item.id === produto.id);
       const quantidade = itemCart?.quantidade || 1;
       return acc + (produto.promo ? produto.promo : produto.price) * quantidade;

@@ -5,7 +5,7 @@ import FinalizarPedido from "../layout/pedido/FinalizarPedido";
 const PedidoPage = () => {
 
   return (
-    <section className="lg:ms-14 min-h-screen relative bg-white z-40">
+    <section className=" lg:ms-14 min-h-screen relative bg-white z-40">
       <HeaderPedido/>
 
       <BlockPedidos/>

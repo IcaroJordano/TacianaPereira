@@ -21,8 +21,10 @@ const AdicionarProduto = ({ produto }) => {
   }, [quantidade, produto]);
 
   return (
-    <div className=" bottom-1 w-full items-center  h-14 z-40 bg-white flex fixed ">
-      <div className="w-3/12 flex ms-4  justify-around items-center">
+    <div className=" bottom-1 right-0 w-full lg:items-baseline items-center  lg:relative lg:flex-col h-14 z-40 bg-white flex fixed lg:justify-between ">
+      <div className="lg:w-9/12  lg:my-6 w-3/12 flex lg:ms-0 ms-4  justify-around items-center">
+
+      <span className="hidden lg:flex mr-8" >Quantidade</span>
         <button
           onClick={() => {
             setQuantidade((prev) => Math.max(1, prev - 1));
@@ -51,7 +53,7 @@ const AdicionarProduto = ({ produto }) => {
 
           }, [1000]);
         }}
-        className="bg-rose-600 text-white justify-between items-center px-4  h-12 my-auto rounded-sm ms-2 w-8/12 flex "
+        className="bg-rose-600 text-white justify-between items-center px-4 lg:min-h-12  h-12 my-auto rounded-sm ms-2 lg:w-full w-8/12 flex "
       >
         {!isLoading ? (
           <>

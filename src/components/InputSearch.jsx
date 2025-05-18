@@ -10,7 +10,7 @@ const InputSearch = () => {
 
   return (
     <div
-      className={`w-11/12 mx-auto  items-center    my-4 h-12 lg:h-10        flex   transition-all duration-500  bg-neutral-50   border border-neutral-900/20  rounded-4xl py-1 lg:py-0  ps-4`}
+      className={`w-11/12 lg:max-w-96 mx-auto  items-center    my-4 h-12 lg:h-10        flex   transition-all duration-500  bg-neutral-50   border border-neutral-900/20  rounded-4xl py-1 lg:py-0  ps-4`}
     >
       <BiSearch className="text-rose-600 mr-1" />
       <input

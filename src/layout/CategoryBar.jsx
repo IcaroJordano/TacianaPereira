@@ -10,13 +10,13 @@ const CategoryBar = ({ image, text }) => {
     <div className="w-full">
       <div
         style={{ scrollbarWidth: "none" }}
-        className="flex shadow-md  ps-2 text-xs text-neutral-600 overflow-x-auto px-2   mt-4 font-semibold  scroll-smooth   "
+        className="flex shadow-md   ps-2 text-xs text-neutral-600 overflow-x-auto px-2   mt-4 font-semibold  scroll-smooth   "
       >
         <p
           onClick={() => {
             setSelectedCategory('');
           }}
-          className={`px-8 py-1 text-center  border-rose-400 ${
+          className={`px-8 cursor-pointer py-1 lg:pb-4 text-center  border-rose-400 ${
             selectedCategory == '' ? "text-rose-400 border-b-2" : ""
           }`}
         >
@@ -28,7 +28,7 @@ const CategoryBar = ({ image, text }) => {
           onClick={() => {
             setSelectedCategory(category.category);
           }}
-          className={`px-8 py-1 text-center  border-rose-400 ${
+          className={`px-8 cursor-pointer py-1 text-center  border-rose-400 ${
             selectedCategory == category.category ? "text-rose-400 border-b-2" : ""
           }`}
         >

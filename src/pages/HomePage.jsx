@@ -13,9 +13,9 @@ const HomePage = () => {
     useContext(SearchContext);
 
   return (
-    <section className="lg:ms-14 pb-28   bg-neutral-50">
+    <section className=" min-h-screen lg:ms-14 pb-28   bg-neutral-50">
       <Header />
-      <div className="w-full pt-2 ">
+      <div className="w-full pt-2">
         <CategoryBar />
       </div>
       <div className=" pt-8">
