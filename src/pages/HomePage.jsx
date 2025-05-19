@@ -9,17 +9,22 @@ import { SearchContext } from "../context/SearchContext";
 import { MdOutlineCatchingPokemon } from "react-icons/md";
 
 const HomePage = () => {
-  const { allCategories, selectedCategory, isLoading,setSelectedCategory } =
+  const { allCategories, selectedCategory, isLoading, setSelectedCategory } =
     useContext(SearchContext);
 
   return (
     <section className=" min-h-screen lg:ms-14 pb-28   bg-neutral-50">
-      <Header />
-      <div className="w-full pt-2">
-        <CategoryBar />
+      <div className="flex shadow-md flex-col lg:flex-row lg:items-end justify-between ">
+        <div className="lg:w-6/12">
+        <Header />
+
+        </div>
+        <div className="lg:w-5/12 flex pt-2 lg:mr-8  justify-end   right-0">
+          <CategoryBar />
+        </div>
       </div>
       <div className=" pt-8">
-        {selectedCategory==='' ? (
+        {selectedCategory === "" ? (
           <>
             <SlideCategory
               title={"Mais Pedidos"}
@@ -42,22 +47,18 @@ const HomePage = () => {
           <>
             <SlideCategory
               title={selectedCategory}
-              filtro={(produto) => (produto.category === selectedCategory ? produto : null)}
+              filtro={(produto) =>
+                produto.category === selectedCategory ? produto : null
+              }
             />
-
           </>
         )}
 
-        {isLoading && 
-         (
+        {isLoading && (
           <>
-            <SlideCategory
-              title={'...'}
-            />
-
+            <SlideCategory title={"..."} />
           </>
-        )
-        }
+        )}
       </div>
     </section>
   );

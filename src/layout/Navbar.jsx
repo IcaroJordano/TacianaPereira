@@ -3,10 +3,12 @@ import { BiHeart, BiHome, BiHomeAlt, BiSearch } from "react-icons/bi";
 import { BsHandbag, BsHandbagFill, BsHeartFill } from "react-icons/bs";
 import { CgHome } from "react-icons/cg";
 import { FaSearch, FaShoppingBag, FaWhatsapp } from "react-icons/fa";
+import { FaBagShopping, FaBasketShopping } from "react-icons/fa6";
 import { FiHome } from "react-icons/fi";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { ImSearch } from "react-icons/im";
-import { IoSearch } from "react-icons/io5";
+import { IoCartOutline, IoCartSharp, IoSearch } from "react-icons/io5";
+import { SlHandbag } from "react-icons/sl";
 import { Link, useLocation, useParams } from "react-router-dom";
 
 export function NavBar({}) {
@@ -50,19 +52,28 @@ export function NavBar({}) {
         <BiSearch className="text-xl mt-1  " />
 
 
-        <span className="lg:hidden  ">Search</span>
+        <span className="lg:hidden  ">Pesquisa</span>
       </Link>
       <Link
         to={"/pedido"}
 
         className={`${urlAtual ==="#/pedido"?' duration-200 transition-all text-rose-600':'text-neutral-900'}  justify-center gap-1 items-center flex flex-col w-1/4 `}
       >
+        {/* <SlHandbag className="text-lg mt-1  "/> */}
+
+
         {urlAtual ==="#/pedido"?
-        <BsHandbagFill className="text-lg mt-1  " />
+        <FaBasketShopping className="text-lg mt-1  "/>
+        
+
         :
         // <BiHeart className="text-xl mt-1  " />
+        // <FaBagShopping className="text-base mt-1  "/>
+        <FaBasketShopping className="text-base mt-1  "/>
 
-        <BsHandbag  className="text-lg mt-1  "/>
+
+
+        // <BsHandbag  className="text-lg mt-1  "/>
 
         }
         <span className="lg:hidden  ">Pedido</span>
@@ -72,7 +83,7 @@ export function NavBar({}) {
         className="text-neutral-900 justify-center gap-1 items-center flex flex-col w-1/4 "
       >
         <FaWhatsapp className=" text-xl mt-1 " />
-        <span className="lg:hidden  ">Contact</span>
+        <span className="lg:hidden  ">Contato</span>
       </a>
     </nav>
   );

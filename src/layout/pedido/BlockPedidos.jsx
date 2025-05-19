@@ -9,7 +9,7 @@ const BlockPedidos = () => {
   return (
     <>
       {produtosInCart.length > 0 ? (
-        <div className="pt-20 flex flex-col gap-8 px-4">
+        <div className="pt-20 flex flex-col gap-8 px-4 lg:ms-8 justify-center items-center">
           {produtosInCart.map((item) => {
             const itemCart = cart.find((cartItem) => cartItem.id === item.id);
 

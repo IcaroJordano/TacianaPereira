@@ -20,7 +20,7 @@ export function VerPedido({}) {
   }, 0);
   return (<>
     {total > 1 && (<div
-        className={` z-10 fixed lg:bottom-2 lg:right-2   lg:rounded-xl  bottom-14 text-neutral-500  w-full lg:w-4/12   border-e border-neutral-200 lg:shadow shadow-2xl lg:justify-center items-center lg:gap-8 justify-around   h-16  flex bg-white`}
+        className={` z-10 fixed lg:bottom-2 lg:right-2   lg:rounded-xl  bottom-14 text-neutral-500  w-full lg:w-3/12   border-e border-neutral-200 lg:shadow shadow-2xl lg:justify-center items-center lg:gap-8 justify-around   h-16  flex bg-white`}
       >
         <p className="text-sm flex flex-col">
           <span>Total Sem Entrega</span>
@@ -30,7 +30,7 @@ export function VerPedido({}) {
           </div>
         </p>
   
-        <Link to={'/pedido'} className="bg-rose-600  text-white justify-between items-center px-10  h-10 my-auto rounded-lg ms-2  flex ">
+        <Link to={'/pedido'} className="bg-rose-600  text-white justify-between items-center lg:px-6 px-10  h-10 my-auto rounded-lg ms-2  flex ">
           Ver Pedido
         </Link>
       </div>)}</>
