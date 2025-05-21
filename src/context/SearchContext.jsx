@@ -38,7 +38,7 @@ export const SearchProvider = ({ children }) => {
         {
           query: `
               {    
-              allProdutos{
+              allProdutos(first: 500) {
               id
               price
               descricao
