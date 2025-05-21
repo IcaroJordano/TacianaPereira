@@ -15,6 +15,7 @@ const ContentProducts = () => {
         )
         .map((produto) => (
           <CardProduto
+          foraDeEstoque={produto.foraDeEstoque}
             most={produto.most}
             promo={produto.promo}
             id={produto.id}
