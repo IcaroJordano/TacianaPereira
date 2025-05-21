@@ -44,6 +44,7 @@ export const SearchProvider = ({ children }) => {
               descricao
               category
               most
+              foraDeEstoque
               promo
                 title
                 most

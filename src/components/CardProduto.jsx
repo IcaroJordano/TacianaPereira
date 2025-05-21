@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import { FaFireAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-const CardProduto = ({ image, title, most, id, price, promo }) => {
+const CardProduto = ({ image, title, most, id, price, promo,foraDeEstoque }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const CardProduto = ({ image, title, most, id, price, promo }) => {
 
   return (
     <Link
-      to={`/produto/${id}`}
+      to={`${foraDeEstoque?'':`/produto/${id}`}`}
       className={`min-w-40 w-40 lg:min-w-64 text-neutral-800 relative text-base flex flex-col gap-1 
         transition-all duration-700 ease-out transform 
         ${show ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
@@ -25,7 +25,7 @@ const CardProduto = ({ image, title, most, id, price, promo }) => {
         </span>
       )}
       <img
-        className="bg-neutral-400 w-40 lg:w-64 h-40 lg:h-64 rounded-xl object-cover"
+        className={`bg-neutral-400 ${foraDeEstoque?'grayscale-100':''} w-40 lg:w-64 h-40 lg:h-64 rounded-xl object-cover`}
         src={image}
         alt=""
       />

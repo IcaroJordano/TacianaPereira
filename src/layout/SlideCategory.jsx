@@ -72,8 +72,9 @@ const SlideCategory = ({ title, filtro }) => {
         <div className="flex flex-nowrap gap-4 px-1">
           {(filtro ? allProdutos.filter(filtro) : allProdutos).map((produto) => (
             <CardProduto
-              key={produto.id}
+            key={produto.id}
               most={produto.most}
+              foraDeEstoque={produto.foraDeEstoque}
               promo={produto.promo}
               id={produto.id}
               price={produto.price}
