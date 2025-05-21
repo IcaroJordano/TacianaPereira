@@ -6,7 +6,7 @@ const ContentProducts = () => {
   const { allProdutos,searchValue } = useContext(SearchContext);
 
   return (
-    <div className="flex flex-wrap lg:mt-8 mt-28  gap-y-8 lg:px-4  justify-around">
+    <div className="flex flex-wrap lg:mt-8 mt-28  gap-y-8 px-2  justify-between">
       {allProdutos
         .filter((produto) =>
           produto.title
