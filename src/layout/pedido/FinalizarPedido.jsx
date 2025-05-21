@@ -46,7 +46,7 @@ const FinalizarPedido = () => {
     <>
       <div className="shadow-2xl justify-around items-center fixed bottom-0 z-50 bg-white flex w-full py-4">
         <div className="flex flex-col">
-          <span>Total com entrega</span>
+          <span>Total Sem Entrega</span>
           <span>R$ {valores.toFixed(2)}</span>
         </div>
         <div>
