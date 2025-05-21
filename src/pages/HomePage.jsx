@@ -37,8 +37,8 @@ const HomePage = () => {
                 title={category.category}
                 filtro={(produto) =>
                   produto.category
-                    .toLowerCase()
-                    .includes(category.category.toLowerCase())
+                    .toLowerCase().replace(/\s+/g, "")
+                    .includes(category.category.replace(/\s+/g, "").toLowerCase())
                 }
               />
             ))}
@@ -48,7 +48,7 @@ const HomePage = () => {
             <SlideCategory
               title={selectedCategory}
               filtro={(produto) =>
-                produto.category === selectedCategory ? produto : null
+                produto.category.toLowerCase().replace(/\s+/g, "") === selectedCategory.toLowerCase().replace(/\s+/g, "") ? produto : null
               }
             />
           </>
