@@ -8,9 +8,11 @@ export const SearchProvider = ({ children }) => {
   const [allCategories, setAllCategories] = useState([]);
   const [produtosFiltered, setProdutosFiltered] = useState([]);
   const [idFilter, setIdFilter] = useState("General");
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const [marcas, setMarcas] = useState([]);
 
   const onChangeSearch = (valor) => {
     setSearchValue(valor);
@@ -43,6 +45,7 @@ export const SearchProvider = ({ children }) => {
               price
               descricao
               category
+              category2
               most
               foraDeEstoque
               promo
@@ -65,6 +68,24 @@ export const SearchProvider = ({ children }) => {
       .then((res) => {
         setAllProdutos(res.data.data["allProdutos"]);
         setProdutosFiltered(res.data.data["allProdutos"]);
+        const marcasFormatadas = [
+          ...new Set(
+            res.data.data["allProdutos"]
+              .map((item) => item.category2?.trim().toLowerCase())
+              .filter((cat) => cat)
+          ),
+        ].map((marca) => marca.charAt(0).toUpperCase() + marca.slice(1));
+        
+        setMarcas(marcasFormatadas);
+        
+
+        console.log([
+          ...new Set(
+            res.data.data["allProdutos"]
+              .map((item) => item.category2)
+              .filter((cat) => cat && cat.trim() !== "")
+          ),
+        ]);
         console.log(res.data.data["allProdutos"]);
       })
       .catch((error) => {
@@ -100,7 +121,6 @@ export const SearchProvider = ({ children }) => {
       .then((res) => {
         setAllCategories(res.data.data["allCategories"]);
         // setProdutosFiltered(res.data.data["allProdutos"]);
-        console.log(res.data.data["allCategories"],a);
       })
       .catch((error) => {
         console.log(error);
@@ -115,6 +135,8 @@ export const SearchProvider = ({ children }) => {
   return (
     <SearchContext.Provider
       value={{
+        marcas,
+        setMarcas,
         idFilter,
         setIdFilter,
         isLoading,
@@ -125,7 +147,9 @@ export const SearchProvider = ({ children }) => {
         setSearchValue,
         allProdutos,
         setAllProdutos,
-        allCategories,selectedCategory, setSelectedCategory
+        allCategories,
+        selectedCategory,
+        setSelectedCategory,
       }}
     >
       {children}

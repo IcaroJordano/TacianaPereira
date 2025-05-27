@@ -9,15 +9,19 @@ import { SearchContext } from "../context/SearchContext";
 import { MdOutlineCatchingPokemon } from "react-icons/md";
 
 const HomePage = () => {
-  const { allCategories, selectedCategory, isLoading, setSelectedCategory } =
-    useContext(SearchContext);
+  const {
+    allCategories,
+    selectedCategory,
+    isLoading,
+    setSelectedCategory,
+    marcas,
+  } = useContext(SearchContext);
 
   return (
     <section className=" min-h-screen lg:ms-14 pb-28   bg-neutral-50">
       <div className="flex shadow-md flex-col lg:flex-row lg:items-end justify-between ">
         <div className="lg:w-6/12">
-        <Header />
-
+          <Header />
         </div>
         <div className="lg:w-5/12 flex pt-2 lg:mr-8  justify-end   right-0">
           <CategoryBar />
@@ -37,8 +41,11 @@ const HomePage = () => {
                 title={category.category}
                 filtro={(produto) =>
                   produto.category
-                    .toLowerCase().replace(/\s+/g, "")
-                    .includes(category.category.replace(/\s+/g, "").toLowerCase())
+                    .toLowerCase()
+                    .replace(/\s+/g, "")
+                    .includes(
+                      category.category.replace(/\s+/g, "").toLowerCase()
+                    )
                 }
               />
             ))}
@@ -48,9 +55,27 @@ const HomePage = () => {
             <SlideCategory
               title={selectedCategory}
               filtro={(produto) =>
-                produto.category.toLowerCase().replace(/\s+/g, "") === selectedCategory.toLowerCase().replace(/\s+/g, "") ? produto : null
+                produto.category.toLowerCase().replace(/\s+/g, "") ===
+                selectedCategory.toLowerCase().replace(/\s+/g, "")
+                  ? produto
+                  : null
               }
             />
+            {marcas.map((marca) => (
+              <SlideCategory
+                title={marca}
+                filtro={(produto) =>
+                  produto.category.toLowerCase().replace(/\s+/g, "") ===
+                  selectedCategory.toLowerCase().replace(/\s+/g, "")
+                    ? produto.category2.toLowerCase().replace(/\s+/g, "") ===
+                      marca.toLowerCase().replace(/\s+/g, "")
+                      ? produto
+                      : null
+                    : null
+                }
+
+              />
+            ))}
           </>
         )}
 
