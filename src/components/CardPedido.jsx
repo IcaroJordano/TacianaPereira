@@ -10,12 +10,16 @@ const CardPedido = ({ id, image, price, quantidade, title }) => {
 
   return (
     <div className="w-full lg:w-8/12    flex justify-between items-start">
-      <div className="flex lg:w-72" >
-      <img className="rounded-lg min-w-16 lg:min-w-20 lg:min-h-20  h-16 object-cover " src={image} alt="" />
-      <div className="flex h-16 ms-4  lg:w-full max-w-44 flex-col justify-around">
-        <p className="truncate " >{title}</p>
-        <p>R${(price * quantidade).toFixed(2)}</p>
-      </div>
+      <div className="flex lg:w-72">
+        <img
+          className="rounded-lg min-w-16 w-16 lg:min-w-20 lg:min-h-20  h-16 object-cover "
+          src={image}
+          alt=""
+        />
+        <div className="flex h-16 ms-4  lg:w-full max-w-44 flex-col justify-around">
+          <p className="truncate ">{title}</p>
+          <p>R${(price * quantidade).toFixed(2)}</p>
+        </div>
       </div>
       <div className="flex min-w-20 h-8  rounded-lg  justify-around items-center bg-neutral-200">
         <span className="text-rose-500">

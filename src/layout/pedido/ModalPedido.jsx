@@ -9,12 +9,14 @@ const ModalPedido = ({ isOpen, setIsOpen }) => {
   const { setCart, cart, produtosInCart } = useContext(PedidoContext);
   const { allProdutos } = useContext(SearchContext);
   const [userName, setUserName] = useState("");
-  
+
   const total = produtosInCart.reduce((acc, produto) => {
     const itemCart = cart.find((item) => item.id === produto.id);
     const qtd = itemCart?.quantidade || 0;
-    return acc + qtd * produto.promo ? produto.promo : produto.price;
+    const preco = produto.promo ?? produto.price; // usa promo se existir, senão price
+    return acc + qtd * preco;
   }, 0);
+
   const mensagem = `Olá Taciana! Me chamo ${userName}\n\n
   Gostaria de fazer um pedido:\n\n${produtosInCart
     .map((produto) => {
@@ -24,14 +26,13 @@ const ModalPedido = ({ isOpen, setIsOpen }) => {
     })
     .join("\n")}\n\nTotal: R$ ${total?.toFixed(2)}`;
 
-  const numero = "5585992638488";  
+  const numero = "5585992638488";
   const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent);
   const link = isMobile
-  ? `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`
-  : `https://web.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
-  
-
-
+    ? `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`
+    : `https://web.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(
+        mensagem
+      )}`;
 
   return (
     <>
